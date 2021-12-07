@@ -11490,6 +11490,8 @@ var addOwnerData = JSON.stringify(
 );
 const targetOrgName = github.context.payload.repository.owner.login;
 
+console.log("new owner is "+newOwner);
+
 var config = {
   method: 'put',
   url: 'https://api.github.com/repos/'+targetOrgName+'/'+targetRepoName+'/collaborators/'+newOwner,
