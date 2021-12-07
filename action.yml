@@ -1,5 +1,5 @@
-name: 'Create an Organization Repository'
-description: 'Creates an Organization Repository and adds the Actor as an admin'
+name: 'Add a Repo Owner'
+description: 'Add a repo owner for a given repository'
 inputs:
   repo-name:  # change this as needed
     description: 'What is the name of the repository?'
@@ -9,9 +9,10 @@ inputs:
     description: 'Organization admin token with admin:org scope'
     required: true
     default: ''
-outputs:
-  repo-url: # change this as needed
-    description: 'URL of the created repository'
+  new-owner:
+    description: 'Handle of the new owner'
+    required: true
+    default: ''
 runs:
   using: 'node12'
   main: 'dist/index.js'
