@@ -1,6 +1,6 @@
-# Create Repo Action
+# Add Repo Owner Action
 
-This action will create a repository in the namespace of the calling workflow. For example, if this action is called from `DemoOrg` , the repo will be created in `DemoOrg`
+This action will add a valid GitHub user as the repository owner.
 
 ## Inputs:
 
@@ -8,9 +8,8 @@ This action will create a repository in the namespace of the calling workflow. F
 
 `org-admin-token`: Org admin token with `repo` and `admin:org` scope
 
-## Outputs:
+`new-owner`: Handle of the new user
 
-`repo-url`: URL of the newly created repo. Blank if error.
 
 ## Demo Workflow:
 
@@ -35,12 +34,11 @@ jobs:
     steps:
       - name: Use Node.js
         uses: actions/setup-node@v2
-      - name: Creating GitHub Organization Repository
-        uses: rohitnb/create-repo-action@main 
-        id: create-repo
+      - name: Add the user who ran this workflow as Repo Admin
+        uses: rohitnb/add-repo-owner-action@main
+        id: add-owner
         with:
           repo-name: '${{ github.event.inputs.repo-name }}'
-          org-admin-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
-      - name: Log URL to the repo
-        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
+          org-admin-token: '${{ secrets.ORG_CONTROLLER }}'
+          new-owner: '${{ github.actor }}'
 ```
