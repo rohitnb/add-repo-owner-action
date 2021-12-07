@@ -11504,8 +11504,10 @@ var config = {
 axios(config)
 .then(function (response) {
   console.log("User "+newOwner+' add as owner successfully!');
+  console.log(response);
 })
 .catch(function (error) {
+  console.log(response)
   core.setFailed(error.message);
 });
 })();
