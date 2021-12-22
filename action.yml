@@ -1,5 +1,8 @@
 name: 'Add a Repo Owner'
 description: 'Add a repo owner for a given repository'
+branding:
+  icon: user-plus
+  color: purple
 inputs:
   repo-name:  # change this as needed
     description: 'What is the name of the repository?'
@@ -16,7 +19,7 @@ inputs:
 outputs:
   status:
     description: 'Pass/Fail status'
-    
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
