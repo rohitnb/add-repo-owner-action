@@ -13,6 +13,10 @@ inputs:
     description: 'Handle of the new owner'
     required: true
     default: ''
+outputs:
+  status:
+    description: 'Pass/Fail status'
+    
 runs:
   using: 'node12'
   main: 'dist/index.js'

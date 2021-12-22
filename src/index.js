@@ -27,8 +27,10 @@ axios(config)
 .then(function (response) {
   console.log("User "+newOwner+' add as owner successfully!');
   console.log(response);
+  core.setOutput("status", true); 
 })
 .catch(function (error) {
   console.log(response)
   core.setFailed(error.message);
+  core.setOutput("status", false); 
 });

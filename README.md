@@ -10,6 +10,10 @@ This action will add a valid GitHub user as the repository owner.
 
 `new-owner`: Handle of the new user
 
+## Outputs:
+
+`status`: Pass/Fail - True if passed, else False
+
 
 ## Demo Workflow:
 
